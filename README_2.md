@@ -68,3 +68,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+1 Ejecutamos coamndo para generar proyecto  npx create-react-app nodepop-react-pt el nombre de la carpeta no admite mayúsculas.
+2 Nos situamos en el directorio que nos ha generado  cd nodepop-react-pt y ejecutamos el npm install y npm start.
+3 Podemos ver la página principal que nos viene por defecto.
+4 Vamos a limpiar carpetas se ejemplos que no son necesarios.
+5 Empezamos por el src/index.js
+6 Borramos reportWebVitals y logo
+7 Creamos utils/storage.js para controlar el local storage, de momento para gestionar el token
+8 Instalando react-router-dom
+9 Creamos src/api/client.js que nos permitirá acceder a la API rest que nos gestionará la utenticación y obtención de token
+10 Generamos un fichero .env para guardar variables de entorno
+11 Instalamos el paquete de axios que nos permite gestionar la llamadas al API
+12
