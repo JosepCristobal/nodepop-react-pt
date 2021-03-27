@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 
+import { AuthContextProvider } from './components/auth/context';
+
 function App() {
   return (
     <div className="App">

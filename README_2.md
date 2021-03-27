@@ -81,4 +81,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 9 Creamos src/api/client.js que nos permitirá acceder a la API rest que nos gestionará la utenticación y obtención de token
 10 Generamos un fichero .env para guardar variables de entorno
 11 Instalamos el paquete de axios que nos permite gestionar la llamadas al API
-12
+12 Vamos a preparar el backend para poder empezar a trabajar con él. A partir de ahora es importante tener algún dato de prueba.
+13 Instalado el backend nodepop-api y ejecutamos el proyecto y funciona.
+14 Introducimos datos de usuario a través de swagger y también hacemos la prueba con Postman.
+15 Ya tenemos nuetro backend a punto para empezar a desarrollar nuestro front.
+16 Volvemos a nuestro proyecto de front y vamos a utilizar el contexto para la verificación y gestión de usuarios autenticados.
+17 Creamos en src/components/auth/context.js que en App.js envolveremos todas nuestras páginas en este componente.
