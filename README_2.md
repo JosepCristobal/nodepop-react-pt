@@ -87,3 +87,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 15 Ya tenemos nuetro backend a punto para empezar a desarrollar nuestro front.
 16 Volvemos a nuestro proyecto de front y vamos a utilizar el contexto para la verificación y gestión de usuarios autenticados.
 17 Creamos en src/components/auth/context.js que en App.js envolveremos todas nuestras páginas en este componente.
+18 En App importamos react-router-dom y prop-types para navegar entre rutas y verificar tipos de datos tratados, respectivamente.
+19 Creando la LoginPage en components/auth/LoginPage y sus dependencias.
+20 Guardando token en el local storage.
+21 Creando índices de exportación por folders

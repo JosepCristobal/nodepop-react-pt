@@ -1,11 +1,16 @@
 import React from 'react';
 import './App.css';
+import T from 'prop-types';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import { AuthContextProvider } from './components/auth/context';
 
 function App() {
   return (
     <div className="App">
+       <AuthContextProvider value={authValue}>
+
+       </AuthContextProvider>
       <header className="App-header">
        
         <p>
