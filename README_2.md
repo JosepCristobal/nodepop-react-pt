@@ -94,4 +94,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 22 En components/shared creamos los componentes que nos harán falta en nuestros formularios. Inicialmente en el de login.
 23 Creados Button.js , FormField.css, FormField.js e index.js
 24 Creamos hooks personalizados en src/hooks/useForm.js
-25 Modificamos el App.js para marcar las rutas del 404 y Login de momento
+25 Modificamos el App.js para marcar las rutas del 404 y Login de momento.
+26 Instalando styled-components.

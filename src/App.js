@@ -30,10 +30,10 @@ function App({ isInitiallyLogged }) {
     <div className="App">
        <AuthContextProvider value={authValue}>
        <Switch>
-       <Route path="/login">
-          <LoginPage />
-        </Route>
-       <Route path="/404">
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+          <Route path="/404">
             <div
               style={{
                 textAlign: 'center',
