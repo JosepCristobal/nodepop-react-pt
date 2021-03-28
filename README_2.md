@@ -90,4 +90,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 18 En App importamos react-router-dom y prop-types para navegar entre rutas y verificar tipos de datos tratados, respectivamente.
 19 Creando la LoginPage en components/auth/LoginPage y sus dependencias.
 20 Guardando token en el local storage.
-21 Creando índices de exportación por folders
+21 Creando index.js de exportación por folders
+22 En components/shared creamos los componentes que nos harán falta en nuestros formularios. Inicialmente en el de login.
+23 Creados Button.js , FormField.css, FormField.js e index.js
+24 Creamos hooks personalizados en src/hooks/useForm.js
+25 Modificamos el App.js para marcar las rutas del 404 y Login de momento
