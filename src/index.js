@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import {BrowserRouter as Router} from 'react-router-dom'
+
 
 import storage from './utils/storage';
 import { configureClient } from './api/client';

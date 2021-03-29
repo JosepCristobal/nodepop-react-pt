@@ -9,7 +9,7 @@ import './LoginForm.css';
 
 function LoginForm({ onSubmit, isLoading }) {
   const [credentials, handleChange, handleSubmit] = useForm({
-    username: '',
+    email: '',
     password: '',
   });
 
@@ -17,16 +17,16 @@ function LoginForm({ onSubmit, isLoading }) {
     onSubmit(credentials);
   };
 
-  const { username, password } = credentials;
+  const { email, password } = credentials;
 
   return (
     <form className="loginForm" onSubmit={handleSubmit(handleFormSubmit)}>
       <FormField
         type="text"
-        name="username"
+        name="email"
         label="phone, email or username"
         className="loginForm-field"
-        value={username}
+        value={email}
         // onChange={handleUsernameChange}
         onChange={handleChange}
         autofocus
@@ -44,7 +44,7 @@ function LoginForm({ onSubmit, isLoading }) {
         type="submit"
         className="loginForm-submit"
         variant="primary"
-        disabled={isLoading || !username || !password}
+        disabled={isLoading || !email || !password}
       >
         Log in
       </Button>

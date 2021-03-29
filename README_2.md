@@ -96,3 +96,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 24 Creamos hooks personalizados en src/hooks/useForm.js
 25 Modificamos el App.js para marcar las rutas del 404 y Login de momento.
 26 Instalando styled-components.
+27 Instalamos propy-types y date-fns classnames
+28 Creamos el /utils/FormField.js
+29 Ya tenemos nuestra primera vesión de formulario de Login.

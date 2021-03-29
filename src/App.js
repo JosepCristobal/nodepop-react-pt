@@ -44,13 +44,15 @@ function App({ isInitiallyLogged }) {
               404 | Not found page
             </div>
           </Route>
-          <Route>
-            <Redirect to="/404" />
-          </Route>
+        
         </Switch>
        </AuthContextProvider>
     </div>
   );
 }
+
+App.propTypes = {
+  isInitiallyLogged: T.bool.isRequired,
+};
 
 export default App;
