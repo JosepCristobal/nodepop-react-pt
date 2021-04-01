@@ -6,25 +6,27 @@ import FormField from '../../shared/FormField';
 import useForm from '../../../hooks/useForm';
 
 import './LoginForm.css';
+import CheckField from '../../shared/CheckField';
 
 function LoginForm({ onSubmit, isLoading }) {
   const [credentials, handleChange, handleSubmit] = useForm({
     email: '',
     password: '',
+    saveToken: false,
   });
 
   const handleFormSubmit = ev => {
     onSubmit(credentials);
   };
 
-  const { email, password } = credentials;
+  const { email, password, saveToken } = credentials;
 
   return (
     <form className="loginForm" onSubmit={handleSubmit(handleFormSubmit)}>
       <FormField
         type="text"
         name="email"
-        label="phone, email or username"
+        label="Username"
         className="loginForm-field"
         value={email}
         // onChange={handleUsernameChange}
@@ -40,6 +42,14 @@ function LoginForm({ onSubmit, isLoading }) {
         // onChange={handlePasswordChange}
         onChange={handleChange}
       />
+      <CheckField
+          type="checkbox"
+          name="check"
+          label="Save session "
+          className="check-field"
+          value={saveToken}
+          onChange={handleChange}>
+      </CheckField>
       <Button
         type="submit"
         className="loginForm-submit"
@@ -48,6 +58,7 @@ function LoginForm({ onSubmit, isLoading }) {
       >
         Log in
       </Button>
+      
     </form>
   );
 }
