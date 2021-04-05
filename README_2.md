@@ -105,3 +105,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 33 Creamos y empezamos a utilizar el PrivateRoute. Lo utilizamos para gestionar si estás autenticado y a que páginas puedes acceder con o sin autenticatión.
 34 Vamos ha crear las carpetas y la gestión del Layout.
 35 Inicialmente adaptaremos el Layout del ejercicio de clase para nuestra práctica y si sobra tiempo, lo personalizaremos un poco más.
+36 Empezamos a crear estructura de carpetas para los anuncios (adverts) en components/adverts

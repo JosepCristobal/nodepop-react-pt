@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import T from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { LoginPage } from './components/auth';
+import { LoginPage, PrivateRoute } from './components/auth';
 
 import { AuthContextProvider } from './components/auth/context';
 
