@@ -12,15 +12,14 @@ function LoginForm({ onSubmit, isLoading }) {
   const [credentials, handleChange, handleSubmit] = useForm({
     email: '',
     password: '',
-    saveToken: false,
+    check: false,
   });
 
   const handleFormSubmit = ev => {
     onSubmit(credentials);
   };
 
-  const { email, password, saveToken } = credentials;
-
+  const { email, password, check } = credentials;
   return (
     <form className="loginForm" onSubmit={handleSubmit(handleFormSubmit)}>
       <FormField
@@ -29,7 +28,6 @@ function LoginForm({ onSubmit, isLoading }) {
         label="Username"
         className="loginForm-field"
         value={email}
-        // onChange={handleUsernameChange}
         onChange={handleChange}
         autofocus
       />
@@ -39,15 +37,14 @@ function LoginForm({ onSubmit, isLoading }) {
         label="password"
         className="loginForm-field"
         value={password}
-        // onChange={handlePasswordChange}
         onChange={handleChange}
       />
       <CheckField
           type="checkbox"
           name="check"
           label="Save session "
-          className="check-field"
-          value={saveToken}
+          className="Checkbox"
+          checked={check}
           onChange={handleChange}>
       </CheckField>
       <Button
