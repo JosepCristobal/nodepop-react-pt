@@ -99,3 +99,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 27 Instalamos propy-types y date-fns classnames
 28 Creamos el /utils/FormField.js
 29 Ya tenemos nuestra primera vesión de formulario de Login.
+30 Implementando el checkbox y controlar su valor a través del hook personalizado useForm.js
+31 Se implementa en una sola función handleChange de nuestro hook personalizado.
+32 Controlamos el guardar o no en el local storage el token resultante de la validación. Lo controlamos en el auth.js a través de credentials.
+
