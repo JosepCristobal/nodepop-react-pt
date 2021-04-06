@@ -3,7 +3,7 @@ import './App.css';
 import T from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { LoginPage, PrivateRoute } from './components/auth';
-
+import { AdvertsPage, NewAdvertPage, AdvertDetailPage } from './components/adverts';
 import { AuthContextProvider } from './components/auth/context';
 
 function App({ isInitiallyLogged }) {
@@ -32,6 +32,9 @@ function App({ isInitiallyLogged }) {
        <Switch>
           <Route path="/login">
             <LoginPage />
+          </Route>
+          <Route exact path="/">
+            <AdvertsPage />
           </Route>
           <Route path="/404">
             <div

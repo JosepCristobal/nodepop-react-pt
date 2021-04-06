@@ -11,7 +11,7 @@ function Layout({ children, title }) {
         <h2 className="layout-title bordered">{title}</h2>
         <section className="layout-content">{children}</section>
       </main>
-      <footer className="layout-footer bordered">© 2021 Keepcoding</footer>
+      <footer className="layout-footer bordered">© 2021 Josep Cristobal</footer>
     </div>
   );
 }

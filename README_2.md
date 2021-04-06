@@ -106,3 +106,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 34 Vamos ha crear las carpetas y la gestión del Layout.
 35 Inicialmente adaptaremos el Layout del ejercicio de clase para nuestra práctica y si sobra tiempo, lo personalizaremos un poco más.
 36 Empezamos a crear estructura de carpetas para los anuncios (adverts) en components/adverts
+37 Empezamos con el Layout. Creamos la carpeta AuthButton en auth/ con ello podremos acceder a autenticarnos o desautenticar.
+38 Ahora vamos a construir la visualización de anuncios y vamos a utilizar la misma estructura que se ha utilizado en clase con los tweets.
+39 Dentro de adverts/AdvertsPage creamos Advert.js, AdvertList.js, AdvertPage.js con los css correspondientes.
+40 Creamos en api la llamada y gestión de adverts.
+41 En Shared creamos Photo.js
