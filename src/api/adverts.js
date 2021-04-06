@@ -3,7 +3,8 @@ import client from './client';
 const advertsBaseUrl = '/api/v1';
 
 export const getLatestAdverts = () => {
-  const url = `${advertsBaseUrl}/adverts?_expand=user&_embed=likes&_sort=updatedAt&_order=desc`;
+  const url = `${advertsBaseUrl}/adverts`;
+  //?_expand=user&_embed=likes&_sort=updatedAt&_order=desc`
   return client.get(url);
 };
 

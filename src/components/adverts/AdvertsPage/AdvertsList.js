@@ -16,7 +16,7 @@ const AdvertsList = ({ adverts }) => {
     <ul className="advertsList">
       {adverts.map(advert => (
         <li key={advert.id}>
-          <Link to={`/advert/${advert.id}`}>
+          <Link to={`/adverts/${advert.id}`}>
             <Advert
               {...advert}
               // history={history}

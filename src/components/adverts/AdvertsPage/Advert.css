@@ -34,3 +34,10 @@
   .advert-separator {
     padding: 0 5px;
   }
+  .advert-centerImg {
+    text-align: center;
+  }
+  
+  .advert-imgWidth{
+    width: 400px
+  }

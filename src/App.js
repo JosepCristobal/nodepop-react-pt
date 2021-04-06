@@ -33,9 +33,15 @@ function App({ isInitiallyLogged }) {
           <Route path="/login">
             <LoginPage />
           </Route>
-          <Route exact path="/">
+          <PrivateRoute path="/adverts/:advertId">
+            {routeProps => <AdvertDetailPage ref={ref} {...routeProps} />}
+          </PrivateRoute>
+          <PrivateRoute exact path="/">
             <AdvertsPage />
-          </Route>
+          </PrivateRoute>
+          <PrivateRoute exact path="/adverts">
+            <AdvertsPage />
+          </PrivateRoute>
           <Route path="/404">
             <div
               style={{

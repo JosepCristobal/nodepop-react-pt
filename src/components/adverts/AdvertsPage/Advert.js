@@ -7,25 +7,27 @@ import Photo from '../../shared/Photo';
 import defaultPhoto from '../../../assets/default_profile.png';
 import './Advert.css';
 
-const Advert = ({ content, updatedAt, user, likes }) => {
+const Advert = ({ content, createdAt, name, sale, price, tags, photo}) => {
   const handleLike = ev => {
     ev.preventDefault();
     // Manage like/unlike flow
     console.log(ev);
   };
-
+  const baseUrlPhoto =`${process.env.REACT_APP_API_BASE_URL}`
   return (
     <article className="advert bordered">
       <div className="left">
-        <Photo src={defaultPhoto} className="advert-photo" />
+        {/* <Photo src={defaultPhoto} className="advert-photo" />  */}
+        <Photo src={baseUrlPhoto+photo} className="advert-centerImg advert-imgWidth" /> 
       </div>
       <div className="right">
         <div className="advert-header">
-          <span className="advert-name">{user.name}</span>
-          <span className="advert-username">{user.username}</span>
-          <span className="advert-separator">·</span>
-          <time dateTime={updatedAt}>
-            {formatDistanceToNow(new Date(updatedAt))}
+          <span className="advert-name">{name}</span><br/>
+          <span className="advert-username">{price}</span><br/>
+          <span className="advert-username">{sale}</span><br/>
+          <span className="advert-username">{tags}</span><br/>
+          <time dateTime={createdAt}>
+            {formatDistanceToNow(new Date(createdAt))}
           </time>
         </div>
         <div>
@@ -40,10 +42,10 @@ const Advert = ({ content, updatedAt, user, likes }) => {
 };
 
 export const advertType = {
-  user: T.shape({ name: T.string.isRequired, username: T.string.isRequired })
-    .isRequired,
-  updatedAt: T.string.isRequired,
-  content: T.string,
+//   user: T.shape({ name: T.string.isRequired, username: T.string.isRequired })
+//     .isRequired,
+//   updatedAt: T.string.isRequired,
+//   content: T.string,
   //likes: T.arrayOf(T.shape({ userId: T.string.isRequired }).isRequired)
    // .isRequired,
 };
