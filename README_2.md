@@ -111,3 +111,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 39 Dentro de adverts/AdvertsPage creamos Advert.js, AdvertList.js, AdvertPage.js con los css correspondientes.
 40 Creamos en api la llamada y gestión de adverts.
 41 En Shared creamos Photo.js
+42 Creanis el detalle en AdvertDetailPage.js cogiendo como muestra el ejercicio realizado en clase.
+42 También hemos creado el AdertDetailPageHook que es lo mismo que la anterior pero en lugar de utilizar clases, hemos utilizado hooks.
+

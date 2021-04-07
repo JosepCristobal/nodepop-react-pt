@@ -11,7 +11,7 @@ function App({ isInitiallyLogged }) {
   const ref = React.useRef(null);
 
   React.useEffect(() => {
-    console.log(ref.current);
+    //console.log(ref.current);
   }, []);
 
   const handleLogin = () => {
