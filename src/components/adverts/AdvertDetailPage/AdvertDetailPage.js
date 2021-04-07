@@ -4,6 +4,7 @@ import './AdvertDetailPage.css';
 import Photo from '../../shared/Photo';
 import { getAdvertDetail } from '../../../api/adverts';
 import { Redirect } from 'react-router';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 class AdvertDetailPage extends React.Component {
   constructor() {
@@ -34,7 +35,14 @@ class AdvertDetailPage extends React.Component {
         <div>
           <Photo src={baseUrlPhoto+advert.photo} className="advert-centerImg advert-imgWidth" />
         </div>
-        <div>{JSON.stringify(advert)}</div>
+        <div>
+          <p>Descripción: {advert.name}</p>
+          <p>Tipo: {advert.sale ? 'Venta':'Compra'}</p>
+          <p>Precio: {advert.price}</p>
+          <p>Categoría: {advert.tags}</p>
+          <p>Publicado hace: {advert.createdAt}</p>
+        </div>
+        {/* <div>{JSON.stringify(advert)}</div> */}
         <div></div>
       </Layout>
     );
