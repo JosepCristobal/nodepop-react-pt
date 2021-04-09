@@ -19,11 +19,11 @@ const Header = ({ className, ...props }) => {
           as={NavLink}
           activeClassName="active"
           // activeStyleObject={{}}
-          to="/tweet"
+          to="/advert"
           variant="primary"
           className="header-button"
         >
-          Tweet
+          Anuncio
         </Button>
         <AuthButton className="header-button" />
       </nav>

@@ -36,6 +36,9 @@ function App({ isInitiallyLogged }) {
           <PrivateRoute path="/adverts/:advertId">
             {routeProps => <AdvertDetailPage ref={ref} {...routeProps} />}
           </PrivateRoute>
+          <PrivateRoute path="/advert">
+            <NewAdvertPage />
+          </PrivateRoute>
           <PrivateRoute exact path="/">
             <AdvertsPage />
           </PrivateRoute>
