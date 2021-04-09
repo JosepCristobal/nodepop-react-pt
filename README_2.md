@@ -113,4 +113,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 41 En Shared creamos Photo.js
 42 Creanis el detalle en AdvertDetailPage.js cogiendo como muestra el ejercicio realizado en clase.
 42 También hemos creado el AdertDetailPageHook que es lo mismo que la anterior pero en lugar de utilizar clases, hemos utilizado hooks.
+43 Como estamos creando el esqueleto de nuestra aplicación y dando funcionalidad mínima a todo, ahora vamos a crear la creación de un nuevo anuncio.
+44 Creamos  en la carpeta de NewAdvertPage los ficheros NewAdvertForm.js, NewAdvertPage.js y NewAdvertPage.css.
+45
 

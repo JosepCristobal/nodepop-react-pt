@@ -10,7 +10,7 @@ const AdvertDetailPage = ({ className, ...props }) =>{
 
 React.useEffect(()=>{
   const { match } = props;
-    getAdvertDetail(match.params.advertId)
+  getAdvertDetail(match.params.advertId)
     .then(adv => setAd(adv))
     .catch(error => setAd({error}));
 },[]);
