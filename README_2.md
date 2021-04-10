@@ -119,4 +119,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 45 Creamos RadioField para tratar los radiobuttons.
 47 Creamos en api/tags.js para recuperar los tags de que disponemos para clasificar nuestro anuncio.
 48 Contruyendo y peleándome con el Select de los tags. Un infierno.
+49 Solucionado el tema de selección dinámico de tags y registro a través de la API
+50 Ahora abordamos la subida de la imagen a nuestro anuncio.
+51 Creamos un nuevo método en adverts createAdvertPhoto donde utilizamos el formData para subir nuestro anuncio con foto incluida.
+52 Sabemos discriminar si guardamos anuncio con o sin foto. la foto es opcional.
+53 Ahora vamos a trabajar en el detalle para realizar el borrado de un anuncio con confirmación tal y como se pide en el enunciado de la práctic.
+
 
