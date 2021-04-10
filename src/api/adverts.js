@@ -15,15 +15,23 @@ export const getAdvertDetail = advertId => {
 
 export const createAdvert = advert => {
   const url = `${advertsBaseUrl}/adverts`;
+ 
   return client.post(url, advert);
 };
 
-// export const createLike = tweetId => {
-//   const url = `${tweetsBaseUrl}/adverts/${tweetId}/likes`;
-//   return client.post(url);
-// };
+export const createAdvertPhoto= (advert) =>{
+  const url = `${advertsBaseUrl}/adverts`;
+  const formData = new FormData();
+    formData.append('photo',advert.photo)
+    formData.append('name',advert.name)
+    formData.append('sale',advert.sale)
+    formData.append('price',advert.price)
+    formData.append('tags',advert.tags)
+    const config = {
+        headers: {
+            'content-type': 'multipart/form-data'
+        }
+    }
+    return  client.post(url,formData,config)
+  };
 
-// export const deleteLike = likeId => {
-//   const url = `${tweetsBaseUrl}/likes/${likeId}`;
-//   return client.delete(url);
-// };
