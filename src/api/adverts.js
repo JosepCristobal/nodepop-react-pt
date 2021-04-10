@@ -8,12 +8,12 @@ export const getLatestAdverts = () => {
   return client.get(url);
 };
 
-export const getAdvertDetail = advertId => {
+export const getAdvertDetail = (advertId) => {
   const url = `${advertsBaseUrl}/adverts/${advertId}`;
   return client.get(url);
 };
 
-export const createAdvert = advert => {
+export const createAdvert = (advert) => {
   const url = `${advertsBaseUrl}/adverts`;
  
   return client.post(url, advert);
@@ -35,3 +35,7 @@ export const createAdvertPhoto= (advert) =>{
     return  client.post(url,formData,config)
   };
 
+  export const deleteAdvert = (advertId) => {
+    const url = `${advertsBaseUrl}/adverts/${advertId}`;
+    return client.delete(url);
+  }

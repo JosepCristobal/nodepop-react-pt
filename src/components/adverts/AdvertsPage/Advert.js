@@ -8,11 +8,11 @@ import defaultPhoto from '../../../assets/default_profile.png';
 import './Advert.css';
 
 const Advert = ({ content, createdAt, name, sale, price, tags, photo}) => {
-  const handleLike = ev => {
-    ev.preventDefault();
-    // Manage like/unlike flow
-    console.log(ev);
-  };
+  // const handleLike = ev => {
+  //   ev.preventDefault();
+  //   // Manage like/unlike flow
+  //   console.log(ev);
+  // };
   const baseUrlPhoto =`${process.env.REACT_APP_API_BASE_URL}`
   return (
     <article className="advert bordered">

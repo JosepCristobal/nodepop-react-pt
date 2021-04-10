@@ -4,7 +4,7 @@ import Layout from '../../layout/Layout';
 import NewAdvertForm from './NewAdvertForm';
 //import { Photo } from '../../shared';
 //import defaultPhoto from '../../../assets/default_profile.png';
-import { createAdvert } from '../../../api/adverts';
+import { createAdvert, createAdvertPhoto } from '../../../api/adverts';
 
 import './NewAdvertPage.css';
 import { Redirect } from 'react-router';
@@ -16,12 +16,21 @@ const NewAdvertPage = props => {
 
   const handleSubmit = async newAdvert => {
     try {
-      const advert = await createAdvert(newAdvert);
+      let advert;
+      
+      if (newAdvert.photo === undefined){
+        console.log('Photo vacía')
+        advert = await createAdvert(newAdvert);
+      } else{
+        console.log('Photo llena')
+        advert = await createAdvertPhoto(newAdvert);
+      }
       setCreatedAdvert(advert);
     } catch (error) {
       setError(true);
     }
   };
+  
 
   if (error && error.status === 401) {
     return <Redirect to="/adverts" />;

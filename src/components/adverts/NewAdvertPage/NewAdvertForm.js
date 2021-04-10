@@ -9,8 +9,14 @@ const NewAdvertForm = ({onSubmit}) =>{
         name:'',
         sale:'Venta',
         price:0.0,
+        
     });
     const [tags, setTags] = React.useState([]);
+    const [photo, setPhoto] = React.useState({})
+
+    const onChangeFile = (e) =>{
+        setPhoto({photo:e.target.files[0]})
+    }
     
    const handleTagChange = (e) => {
         let options = e.target.options;
@@ -32,8 +38,8 @@ const NewAdvertForm = ({onSubmit}) =>{
     const handleFormSubmit = ev => {
         const resultReturn = {tags: tags.selectedOptions}
         const sales = {sale: advert.sale === 'Venta' ? true:false};
-        const returnedTarget = Object.assign(advert,resultReturn,sales)
-        console.log(returnedTarget)
+       
+        const returnedTarget = Object.assign(advert,resultReturn,sales,photo)
         onSubmit(returnedTarget);
       };
     const {name,sale,price} = advert;
@@ -82,6 +88,8 @@ const NewAdvertForm = ({onSubmit}) =>{
                 selected ={[tags]}
                 onChange={handleTagChange}
             />
+            <input type='file' onChange={onChangeFile}/>
+            
             <Button
                 type="submit"
                 className="loginForm-submit"

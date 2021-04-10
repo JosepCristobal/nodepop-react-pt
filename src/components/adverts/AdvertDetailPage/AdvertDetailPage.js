@@ -1,52 +1,59 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Layout from '../../layout/Layout';
 import './AdvertDetailPage.css';
 import Photo from '../../shared/Photo';
-import { getAdvertDetail } from '../../../api/adverts';
-import { Redirect } from 'react-router';
-import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import { getAdvertDetail, deleteAdvert } from '../../../api/adverts';
+import { Redirect, useHistory } from 'react-router';
+import { Button  } from '../../shared';
 
-class AdvertDetailPage extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      advert: {},
-      error: null,
-    };
-  }
-  
-  componentDidMount() {
-    const { match } = this.props;
+const AdvertDetailPage = ({ className, ...props }) =>{
+    const[ad,setAd] = React.useState({advert: {}, error:null})
+    const { match } = props;
+
+  React.useEffect(()=>{
     getAdvertDetail(match.params.advertId)
-      .then(advert => this.setState({ advert }))
-      .catch(error => this.setState({ error }));
-  }
-  
-  render() {
-    const baseUrlPhoto =`${process.env.REACT_APP_API_BASE_URL}`;
-    const { advert, error } = this.state;
-    console.log(advert.photo)
+      .then(adv => setAd(adv))
+      .catch(error => setAd({error}));
+  },[]);
 
-    if (error && error.status === 404) {
-      return <Redirect to="/404" />;
-    }
-    return (
-      <Layout title="Advert Detail" {...this.props}>
-        <div>
-          <Photo src={baseUrlPhoto+advert.photo} className="advert-centerImg advert-imgWidth" />
-        </div>
-        <div>
-          <p>Descripción: {advert.name}</p>
-          <p>Tipo: {advert.sale ? 'Venta':'Compra'}</p>
-          <p>Precio: {advert.price}</p>
-          <p>Categoría: {advert.tags}</p>
-          <p>Publicado hace: {advert.createdAt}</p>
-        </div>
-        {/* <div>{JSON.stringify(advert)}</div> */}
-        <div></div>
-      </Layout>
-    );
-    }
+const history = useHistory();
+const handlerDelete = async (idAdvert) =>{
+  alert(`Va a borrar el registro núm. ${idAdvert}`)
+  try {
+    const advertDel = await deleteAdvert(idAdvert);
+    console.log (advertDel)
+  } catch (error) {
+    console.log(error)
   }
 
+
+  history.push("/");
+}
+
+const baseUrlPhoto =`${process.env.REACT_APP_API_BASE_URL}`;
+if (ad.error && ad.error.status === 404) {
+  console.log(ad.error)
+    return <Redirect to="/404" />;
+  }
+  return (
+    <Layout title="Advert Detail" {...props}>
+    <div>
+      <Photo src={baseUrlPhoto+ad.photo} className="advert-centerImg advert-imgWidth" />
+    </div>
+    <div>
+      <p>Descripción: {ad.name}</p>
+      <p>Tipo: {ad.sale ? 'Venta':'Compra'}</p>
+      <p>Precio: {ad.price}</p>
+      <p>Categoría: {ad.tags}</p>
+      <p>Publicado hace: {ad.createdAt}</p>
+      <Button
+            className="loginForm-submit"
+            variant="primary"
+            onClick={()=>{ window.confirm('Are you sure you wish to delete this item?')?handlerDelete(ad.id):console.log('No borrar')}}>
+            Delete
+        </Button>
+    </div>
+  </Layout>
+  );
+}
 export default AdvertDetailPage;
