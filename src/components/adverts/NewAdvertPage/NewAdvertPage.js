@@ -12,6 +12,7 @@ import { Redirect } from 'react-router';
 const NewAdvertPage = props => {
   const [error, setError] = React.useState(null);
   const [createdAdvert, setCreatedAdvert] = React.useState(null);
+  
 
   const handleSubmit = async newAdvert => {
     try {
@@ -27,7 +28,7 @@ const NewAdvertPage = props => {
   }
 
   if (createdAdvert) {
-    return <Redirect to={`/advert/${createdAdvert.id}`} />;
+    return <Redirect to={`/adverts/${createdAdvert.id}`} />;
   }
 
   return (

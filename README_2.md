@@ -117,4 +117,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 44 Creamos  en la carpeta de NewAdvertPage los ficheros NewAdvertForm.js, NewAdvertPage.js y NewAdvertPage.css.
 45 Desarrollamos el formulario de alta de nuevos anuncios
 45 Creamos RadioField para tratar los radiobuttons.
+47 Creamos en api/tags.js para recuperar los tags de que disponemos para clasificar nuestro anuncio.
+48 Contruyendo y peleándome con el Select de los tags. Un infierno.
 
