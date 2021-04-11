@@ -41,7 +41,7 @@ const NewAdvertPage = props => {
   }
 
   return (
-    <Layout title="What are you thinking?" {...props}>
+    <Layout title="Nuevo anuncio, suerte en tu operación" {...props}>
       <div className="newAdvertPage bordered" style={{ borderBottomWidth: 10 }}>
         <div className="left">
           {/* <Photo src={defaultPhoto} alt="" /> */}

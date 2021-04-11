@@ -16,6 +16,8 @@ const storage = {
       localStorage.removeItem(key);
     },
   };
+
+  // Si hubieramos terminado los filtros, aqui se hubieran gestionado las preferencias de usuario.
   
   export default storage;
   

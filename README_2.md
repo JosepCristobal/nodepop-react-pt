@@ -130,10 +130,15 @@ Las pruebas de filtrado las he intentado hacer en local y me ha faltado el poder
 
 
 TODO- El listado de anuncios maketarlo correctamente y en detalle poner la fecha de creación.
+
 TODO- Control de errores implantar en algunos casos y mejorar los existentes.
+
 TODO- Crear una validación inicial para saber que el token que tenemos guardado no está caducado y es válido.
+
 TODO- Solucionar Warning en Advert Detail.
+
 TODO- Campo precio en new y en search que sólo acepte campos numéricos.
+
 TODO- Mejoras y optimización de código.
 
 

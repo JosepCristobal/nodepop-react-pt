@@ -18,7 +18,6 @@ const Header = ({ className, ...props }) => {
         <Button
           as={NavLink}
           activeClassName="active"
-          // activeStyleObject={{}}
           to="/advert"
           variant="primary"
           className="header-button"

@@ -22,7 +22,7 @@ const AdvertsPage = ({ className, ...props }) => {
   }, []);
  //Filtrado de anuncios
   return (
-    <Layout title="What's going on..." {...props}>
+    <Layout title="Encuentra u ofrece lo que más te interesa" {...props}>
       <div>
         <AdvertSearch adverts={adverts}{...props}>
   

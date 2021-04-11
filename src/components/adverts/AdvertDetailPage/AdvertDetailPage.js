@@ -35,7 +35,7 @@ if (ad.error && ad.error.status === 404) {
     return <Redirect to="/404" />;
   }
   return (
-    <Layout title="Advert Detail" {...props}>
+    <Layout title="Detalle del anuncio" {...props}>
     <div>
       <Photo src={ad.photo ?baseUrlPhoto+ad.photo: defaultPhoto} className="advert-centerImg advert-imgWidth" />
     </div>
@@ -48,7 +48,7 @@ if (ad.error && ad.error.status === 404) {
       <Button
             className="loginForm-submit"
             variant="primary"
-            onClick={()=>{ window.confirm('Are you sure you wish to delete this item?')?handlerDelete(ad.id):console.log('No borrar')}}>
+            onClick={()=>{ window.confirm('Realmente quiere borrar este registro?')?handlerDelete(ad.id):console.log('No borrar')}}>
             Delete
         </Button>
     </div>
