@@ -114,14 +114,28 @@
 
 58 Creamos AdvertSearch para desarrollar las etiquetas de búsqueda.
 
+59 Lo intentamos de todas las maneras, pero no hay forma de pasar los parametros de filtro a la parte final.
+
 60 Solucionamos la foto por defecto en el detalle de anuncios cuando no existe foto.
+
+Se hace la hora de entrega y ya no puedo avanzar más.
+
+Las pruebas de filtrado las he intentado hacer en local y me ha faltado el poder aplicar el filtro dinámico.
+
+ Haciendo pruebas con filtros manuales como datoEvalua="Moto" funciona correctamente.
+
+ El tiempo que queda no da para más y hasta aquí he llegado.
+
+ Subo la práctica y si me da tiempo hasta 23.50h haré otra intentona.
 
 
 TODO- El listado de anuncios maketarlo correctamente y en detalle poner la fecha de creación.
 TODO- Control de errores implantar en algunos casos y mejorar los existentes.
 TODO- Crear una validación inicial para saber que el token que tenemos guardado no está caducado y es válido.
 TODO- Solucionar Warning en Advert Detail.
-TODO- Campo precio en new y en search que solo acepte campos numéricos.
+TODO- Campo precio en new y en search que sólo acepte campos numéricos.
+TODO- Mejoras y optimización de código.
+
 
 
 

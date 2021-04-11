@@ -15,20 +15,22 @@ const AdvertSearch =({adverts})=>{
       );
       
     const [name, setName] = React.useState('');
-
     const [price, setPrice] = React.useState(0.0);
     const [tags, setTags] = React.useState([]);
     const [sale, setSale] = React.useState('Venta');
-
+    const [filterR, setFilterR]= React.useState({})
     const handleChangePrice = (e) => {
-        setPrice(e.target.value);  
+        setPrice(e.target.value); 
+        setFilterR(()=>resultFilter())
       };
 
     const handleChangeName = (e) => {
         setName(e.target.value)
+        setFilterR(()=>resultFilter())
       };
       const handleChangeCheck = (e) => {
         setSale(e.target.value)
+        setFilterR(()=>resultFilter())
       };
   
 
@@ -45,7 +47,8 @@ const AdvertSearch =({adverts})=>{
             oldValue => ({
                 ...oldValue,
                 selectedOptions,
-            }));      
+            })); 
+        setFilterR(()=>resultFilter())     
     }
     const handleFormSubmit = ev => {
         const resultReturn = {tags: tags.selectedOptions}
@@ -53,14 +56,20 @@ const AdvertSearch =({adverts})=>{
         const ventaCompra = {todos: sale === 'Todos' ? true:false};
         const nombre = {name:name};
         const importeD = {price:price}
-        //const returnedTarget = Object.assign(nombre,resultReturn,sales,ventaCompra,importeD)
         const filterAdvert = Object.assign(nombre,resultReturn,sales,ventaCompra,importeD)
-        //console.log(returnedTarget)
-        //filterAdvert = {returnedTarget};
-        console.log(filterAdvert)
-        //onSubmit(returnedTarget);
-        return filterAdvert
+       
       };
+      const resultFilter = (e)=>{
+       // e.preventDefault();
+        const resultReturn = {tags: tags.selectedOptions}
+        const sales = {sale: sale === 'Venta' ? true:false};
+        const ventaCompra = {todos: sale === 'Todos' ? true:false};
+        const nombre = {name:name};
+        const importeD = {price:price}
+        const filterAdvert = Object.assign(nombre,resultReturn,sales,ventaCompra,importeD)
+        return filterAdvert
+        //setFilterR({filterAdvert})
+      }
 
 return (
 
@@ -126,10 +135,17 @@ return (
         >
             Search
         </Button>
+        <Button
+            className="loginForm-submit"
+            variant="primary"
+            // onClick = {resultFilter}
+            >
+            Búsqueda controlada    
+        </Button>
 
     </form>
     <div className="advertsPage">
-        {adverts.length ? <AdvertsList adverts={adverts}  /> : <EmptyList />}
+        {adverts.length ? <AdvertsList adverts={adverts} {...filterR} /> : <EmptyList />}
     </div>
 </div>
   );
