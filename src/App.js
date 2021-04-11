@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import T from 'prop-types';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { LoginPage, PrivateRoute } from './components/auth';
 import { AdvertsPage, NewAdvertPage, AdvertDetailPage } from './components/adverts';
 import { AuthContextProvider } from './components/auth/context';

@@ -11,7 +11,7 @@ const AdvertDetailPage = ({ className, ...props }) =>{
     const[ad,setAd] = React.useState({advert: {}, error:null})
     const { match } = props;
 
-  React.useEffect(()=>{
+  useEffect(()=>{
     getAdvertDetail(match.params.advertId)
       .then(adv => setAd(adv))
       .catch(error => setAd({error}));

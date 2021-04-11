@@ -1,6 +1,4 @@
 import React from 'react';
-import { findAllInRenderedTree } from 'react-dom/test-utils';
-import useForm from '../../../hooks/useForm';
 import { Button, FormField, RadioField  } from '../../shared';
 import TagsAvailable from '../NewAdvertPage/TagsAvailable'
 import AdvertsList from './AdvertsList'
@@ -21,10 +19,6 @@ const AdvertSearch =({adverts})=>{
     const [price, setPrice] = React.useState(0.0);
     const [tags, setTags] = React.useState([]);
     const [sale, setSale] = React.useState('Venta');
-
-    const handleChange = (e)=>{
-        
-    }
 
     const handleChangePrice = (e) => {
         setPrice(e.target.value);  
@@ -135,7 +129,7 @@ return (
 
     </form>
     <div className="advertsPage">
-        {adverts.length ? <AdvertsList adverts={adverts} handleFormSubmit  /> : <EmptyList />}
+        {adverts.length ? <AdvertsList adverts={adverts}  /> : <EmptyList />}
     </div>
 </div>
   );

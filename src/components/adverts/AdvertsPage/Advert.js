@@ -1,9 +1,7 @@
 import React from 'react';
-import T from 'prop-types';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { Button  } from '../../shared';
 import { useHistory } from "react-router-dom";
-import defaultPhoto from '../../../assets/default_profile.png';
 import './Advert.css';
 
 const Advert = ({createdAt, name, sale, price, tags, id}) => {
@@ -39,12 +37,6 @@ const Advert = ({createdAt, name, sale, price, tags, id}) => {
 };
 
 export const advertType = {
-//   user: T.shape({ name: T.string.isRequired, username: T.string.isRequired })
-//     .isRequired,
-//   updatedAt: T.string.isRequired,
-//   content: T.string,
-  //likes: T.arrayOf(T.shape({ userId: T.string.isRequired }).isRequired)
-   // .isRequired,
 };
 
 Advert.propTypes = advertType;

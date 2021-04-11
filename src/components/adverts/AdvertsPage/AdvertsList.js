@@ -1,6 +1,5 @@
 import React from 'react';
 import T from 'prop-types';
-import { Link } from 'react-router-dom';
 import Advert, { advertType } from './Advert';
 
 const AdvertsList = ({ adverts } ,filterAdvert) => {
