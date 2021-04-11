@@ -2,6 +2,7 @@ import React from 'react';
 import useForm from '../../../hooks/useForm';
 import { Button, FormField, RadioField  } from '../../shared';
 import TagsAvailable from './TagsAvailable'
+import T from 'prop-types';
 
 
 const NewAdvertForm = ({onSubmit}) =>{
@@ -11,6 +12,7 @@ const NewAdvertForm = ({onSubmit}) =>{
         price:0.0,
         
     });
+    
     const [tags, setTags] = React.useState([]);
     const [photo, setPhoto] = React.useState({})
 
@@ -104,10 +106,10 @@ const NewAdvertForm = ({onSubmit}) =>{
 };
 
 NewAdvertForm.propTypes = {
-    className: T.string,
-    isLogged: T.bool,
-    onLogout: T.func.isRequired,
-  };
+    name: T.string,
+    sale: T.string,
+    price: T.number,
+};
   
 
 export default NewAdvertForm;

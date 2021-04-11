@@ -3,31 +3,49 @@ import T from 'prop-types';
 import { Link } from 'react-router-dom';
 import Advert, { advertType } from './Advert';
 
-// const renderTweet = history => tweet => (
-//   <Tweet key={tweet.id} {...tweet} history={history} />
-// );
-
 const AdvertsList = ({ adverts }) => {
-  // const handleClick = tweetId => {
-  //   history.push(`/tweet/${tweetId}`);
-  // };
-
-  return (
-    <ul className="advertsList">
-      {adverts.map(advert => (
-        <li key={advert.id}>
-          <Link to={`/adverts/${advert.id}`}>
+ 
+  //Inicio de Pruebas de filtrado
+  const datoEvalua="Embarcación"
+  const items = adverts.filter((data)=>{
+    //console.log(data.name.toLowerCase())
+    if(datoEvalua == null)
+      return data
+    else if(data.name.toLowerCase().includes(datoEvalua.toLowerCase()) ){
+      return data
+}    
+  }).map(data=>{
+    console.log(`Datos llegan al map: ${data.name}`)
+    return(
+    <div>
+      <ul className="advertsList">
+        <li key={data.id}>
             <Advert
-              {...advert}
-              // history={history}
-              // onClick={() => handleClick(tweet.id)}
+              {...data}
             />
-          </Link>
         </li>
-      ))}
-      {/* {tweets.map(renderTweet(history))} */}
     </ul>
-  );
+    </div>
+    )
+  })
+
+  return(<div>{items}</div>)
+
+  
+  // Fin de pruebas de filtrado
+  
+  
+  // return (
+  //   <ul className="advertsList">
+  //     {adverts.map(advert => (
+  //       <li key={advert.id}>
+  //           <Advert
+  //             {...advert}
+  //           />
+  //       </li>
+  //     ))}
+  //   </ul>
+  // );
 };
 
 AdvertsList.propTypes = {

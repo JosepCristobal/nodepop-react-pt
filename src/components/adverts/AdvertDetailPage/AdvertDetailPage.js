@@ -43,7 +43,7 @@ if (ad.error && ad.error.status === 404) {
       <p>Tipo: {ad.sale ? 'Venta':'Compra'}</p>
       <p>Precio: {ad.price}</p>
       <p>Categoría: {ad.tags}</p>
-      <p>Publicado hace: {ad.createdAt}</p>
+      <p>Publicado el: {ad.createdAt}</p>
       <Button
             className="loginForm-submit"
             variant="primary"

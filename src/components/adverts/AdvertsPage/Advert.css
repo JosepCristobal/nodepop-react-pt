@@ -1,8 +1,8 @@
 .advert {
-    border-bottom-width: 1px;
+    border-bottom-width: 2px;
     cursor: pointer;
     display: flex;
-    padding: 10px 15px 0 15px;
+    padding: 10px 15px 10px 15px;
     transition: background-color 0.2s;
   }
   
@@ -29,6 +29,7 @@
   
   .advert-username {
     margin-left: 5px;
+    margin-right: 5px;
   }
   
   .advert-separator {
@@ -41,3 +42,7 @@
   .advert-imgWidth{
     width: 400px
   }
+
+  ul{
+    list-style:none;
+    }

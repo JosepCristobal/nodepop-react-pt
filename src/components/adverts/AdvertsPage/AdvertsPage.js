@@ -7,6 +7,7 @@ import Layout from '../../layout/Layout';
 import AdvertsList from './AdvertsList'
 import { Button } from '../../shared';
 import './AdvertsPage.css';
+import AdvertSearch from './AdvertSearch';
 
 const EmptyList = () => (
   <div style={{ textAlign: 'center' }}>
@@ -23,9 +24,12 @@ const AdvertsPage = ({ className, ...props }) => {
   React.useEffect(() => {
     getLatestAdverts().then(setAdverts);
   }, []);
-
+ //Filtrado de anuncios
   return (
     <Layout title="What's going on..." {...props}>
+      <div>
+        <AdvertSearch></AdvertSearch>
+      </div>
       <div className="advertsPage">
         {adverts.length ? <AdvertsList adverts={adverts} /> : <EmptyList />}
       </div>

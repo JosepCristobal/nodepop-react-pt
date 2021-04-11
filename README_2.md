@@ -123,11 +123,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 51 Ahora abordamos la subida de la imagen a nuestro anuncio.
 52 Creamos un nuevo método en adverts createAdvertPhoto donde utilizamos el formData para subir nuestro anuncio con foto incluida.
 53 Sabemos discriminar si guardamos anuncio con o sin foto. la foto es opcional.
-54 Cuando no existen anuncios, en el primer anuncio mostramos una pantalla con el detalle vacío y un botón que nos permitirá crear nuestro primer anuncio.
-55 En NewAdvertForm vamos a implantar el .propTypes para validar el tipo de datos que utilizamos en cada campo.
-56 Ahora vamos a trabajar en el detalle para realizar el borrado de un anuncio con confirmación tal y como se pide en el enunciado de la práctic.
+54 Ahora vamos a trabajar en el detalle para realizar el borrado de un anuncio con confirmación tal y como se pide en el enunciado de la práctica.
+55 Cuando no existen anuncios, en el primer anuncio mostramos una pantalla con el detalle vacío y un botón que nos permitirá crear nuestro primer anuncio.
+56 En NewAdvertForm vamos a implantar el .propTypes para validar el tipo de datos que utilizamos en cada campo. 
+57 En NewAdvertForm no se activa el botón de guardar hasta que no están todos los campos obligatorios con sus valores.
+58 Creamos AdvertSearch para desarrollar las etiquetas de búsqueda
 
 
+TODO- El listado de anuncios maketarlo correctamente y en detalle poner la fecha de creación.
+TODO- Control de errores implantar en algunos casos y mejorar los existentes.
 TODO- Crear una validación inicial para saber que el token que tenemos guardado no está caducado y es válido.
+TODO- Solucionar Warning en Advert Detail.
+TODO- Campo precio en new y en search que solo acepte campos numéricos.
 
 

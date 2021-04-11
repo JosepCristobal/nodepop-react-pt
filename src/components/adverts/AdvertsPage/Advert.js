@@ -1,40 +1,37 @@
 import React from 'react';
 import T from 'prop-types';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
-
-//import LikeButton from './LikeButton';
-import Photo from '../../shared/Photo';
+import { Button  } from '../../shared';
+import { useHistory } from "react-router-dom";
 import defaultPhoto from '../../../assets/default_profile.png';
 import './Advert.css';
 
-const Advert = ({ content, createdAt, name, sale, price, tags, photo}) => {
-  // const handleLike = ev => {
-  //   ev.preventDefault();
-  //   // Manage like/unlike flow
-  //   console.log(ev);
-  // };
-  const baseUrlPhoto =`${process.env.REACT_APP_API_BASE_URL}`
+const Advert = ({createdAt, name, sale, price, tags, id}) => {
+  
+  const history = useHistory();
+  const routeChange = () =>{ 
+    let path = `/adverts/${id}`; 
+    history.push(path);
+  }
+
   return (
     <article className="advert bordered">
-      <div className="left">
-        {/* <Photo src={defaultPhoto} className="advert-photo" />  */}
-        <Photo src={baseUrlPhoto+photo} className="advert-centerImg advert-imgWidth" /> 
-      </div>
+    
       <div className="right">
         <div className="advert-header">
-          <span className="advert-name">{name}</span><br/>
-          <span className="advert-username">{price}</span><br/>
-          <span className="advert-username">{sale}</span><br/>
-          <span className="advert-username">{tags}</span><br/>
+          <span className="advert-name">Descripcion: {name}</span><br/>
+          <span className="advert-username">Precio producto: {price}</span><br/>
+          <span className="advert-username">Tipo de transacción: {sale}</span><br/>
+          <span className="advert-username">Clasificación :{tags}</span><br/>
           <time dateTime={createdAt}>
-            {formatDistanceToNow(new Date(createdAt))}
-          </time>
-        </div>
-        <div>
-          {content}
-          <div className="advert-actions">
-            {/* <LikeButton onLike={handleLike}>{likes.length || null}</LikeButton> */}
-          </div>
+            Se publicó hace :{formatDistanceToNow(new Date(createdAt))}
+          </time><br></br>
+          <Button
+            className="loginForm-submit"
+            variant="primary"
+            onClick={routeChange}>
+            Detalle
+          </Button>
         </div>
       </div>
     </article>
@@ -51,9 +48,5 @@ export const advertType = {
 };
 
 Advert.propTypes = advertType;
-
-Advert.defaultProps = {
-  content: 'Nothing here!',
-};
 
 export default Advert;
