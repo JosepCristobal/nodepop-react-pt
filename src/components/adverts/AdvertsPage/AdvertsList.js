@@ -3,7 +3,9 @@ import T from 'prop-types';
 import { Link } from 'react-router-dom';
 import Advert, { advertType } from './Advert';
 
-const AdvertsList = ({ adverts }, ...props) => {
+const AdvertsList = ({ adverts } ,filterAdvert) => {
+  console.log(`Filtro en detalle: ${{filterAdvert}}`)
+  console.log(`Filtro en detalle sale: ${filterAdvert.sale}`)
   //Inicio de Pruebas de filtrado
   const datoEvalua="Moto"
   const items = adverts.filter((data)=>{

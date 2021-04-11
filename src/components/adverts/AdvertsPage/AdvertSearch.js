@@ -7,7 +7,6 @@ import AdvertsList from './AdvertsList'
 import { Link } from 'react-router-dom';
 
 const AdvertSearch =({adverts})=>{
-    
     const EmptyList = () => (
         <div style={{ textAlign: 'center' }}>
           <p>Be the first Ad!</p>
@@ -54,12 +53,25 @@ const AdvertSearch =({adverts})=>{
                 selectedOptions,
             }));      
     }
-    const handleSubmit = ()=>{}
+    const handleFormSubmit = ev => {
+        const resultReturn = {tags: tags.selectedOptions}
+        const sales = {sale: sale === 'Venta' ? true:false};
+        const ventaCompra = {todos: sale === 'Todos' ? true:false};
+        const nombre = {name:name};
+        const importeD = {price:price}
+        //const returnedTarget = Object.assign(nombre,resultReturn,sales,ventaCompra,importeD)
+        const filterAdvert = Object.assign(nombre,resultReturn,sales,ventaCompra,importeD)
+        //console.log(returnedTarget)
+        //filterAdvert = {returnedTarget};
+        console.log(filterAdvert)
+        //onSubmit(returnedTarget);
+        return filterAdvert
+      };
 
 return (
-    // <form className="newAdvertForm" onSubmit={handleSubmit(handleFormSubmit)}>
+
     <div>
-    <form className="newAdvertForm" onSubmit={handleSubmit()}>
+    <form className="newAdvertForm" onSubmit={handleFormSubmit()}>
         <FormField
             type="text"
             name="name"
@@ -113,17 +125,17 @@ return (
         />
         
         <Button
-            // type="button"
+            type="submit"
             className="loginForm-submit"
             variant="primary"
-            //onClick = {alert('La Búsqueda está en marcha')}
+           
         >
             Search
         </Button>
-      
+
     </form>
     <div className="advertsPage">
-        {adverts.length ? <AdvertsList adverts={adverts}  /> : <EmptyList />}
+        {adverts.length ? <AdvertsList adverts={adverts} handleFormSubmit  /> : <EmptyList />}
     </div>
 </div>
   );
