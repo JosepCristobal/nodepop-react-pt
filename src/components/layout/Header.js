@@ -23,7 +23,7 @@ const Header = ({ className, ...props }) => {
           variant="primary"
           className="header-button"
         >
-          Anuncio
+          Nuevo Anuncio
         </Button>
         <AuthButton className="header-button" />
       </nav>

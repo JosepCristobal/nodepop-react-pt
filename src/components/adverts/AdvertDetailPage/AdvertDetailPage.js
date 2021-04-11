@@ -25,8 +25,6 @@ const handlerDelete = async (idAdvert) =>{
   } catch (error) {
     console.log(error)
   }
-
-
   history.push("/");
 }
 

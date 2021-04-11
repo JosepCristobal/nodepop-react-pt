@@ -112,17 +112,22 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 40 Creamos en api la llamada y gestión de adverts.
 41 En Shared creamos Photo.js
 42 Creanis el detalle en AdvertDetailPage.js cogiendo como muestra el ejercicio realizado en clase.
-42 También hemos creado el AdertDetailPageHook que es lo mismo que la anterior pero en lugar de utilizar clases, hemos utilizado hooks.
-43 Como estamos creando el esqueleto de nuestra aplicación y dando funcionalidad mínima a todo, ahora vamos a crear la creación de un nuevo anuncio.
-44 Creamos  en la carpeta de NewAdvertPage los ficheros NewAdvertForm.js, NewAdvertPage.js y NewAdvertPage.css.
-45 Desarrollamos el formulario de alta de nuevos anuncios
-45 Creamos RadioField para tratar los radiobuttons.
-47 Creamos en api/tags.js para recuperar los tags de que disponemos para clasificar nuestro anuncio.
-48 Contruyendo y peleándome con el Select de los tags. Un infierno.
-49 Solucionado el tema de selección dinámico de tags y registro a través de la API
-50 Ahora abordamos la subida de la imagen a nuestro anuncio.
-51 Creamos un nuevo método en adverts createAdvertPhoto donde utilizamos el formData para subir nuestro anuncio con foto incluida.
-52 Sabemos discriminar si guardamos anuncio con o sin foto. la foto es opcional.
-53 Ahora vamos a trabajar en el detalle para realizar el borrado de un anuncio con confirmación tal y como se pide en el enunciado de la práctic.
+43 También hemos creado el AdertDetailPageHook que es lo mismo que la anterior pero en lugar de utilizar clases, hemos utilizado hooks.
+44 Como estamos creando el esqueleto de nuestra aplicación y dando funcionalidad mínima a todo, ahora vamos a crear la creación de un nuevo anuncio.
+45 Creamos  en la carpeta de NewAdvertPage los ficheros NewAdvertForm.js, NewAdvertPage.js y NewAdvertPage.css.
+46 Desarrollamos el formulario de alta de nuevos anuncios
+47 Creamos RadioField para tratar los radiobuttons.
+48 Creamos en api/tags.js para recuperar los tags de que disponemos para clasificar nuestro anuncio.
+49 Contruyendo y peleándome con el Select de los tags. Un infierno.
+50 Solucionado el tema de selección dinámico de tags y registro a través de la API
+51 Ahora abordamos la subida de la imagen a nuestro anuncio.
+52 Creamos un nuevo método en adverts createAdvertPhoto donde utilizamos el formData para subir nuestro anuncio con foto incluida.
+53 Sabemos discriminar si guardamos anuncio con o sin foto. la foto es opcional.
+54 Cuando no existen anuncios, en el primer anuncio mostramos una pantalla con el detalle vacío y un botón que nos permitirá crear nuestro primer anuncio.
+55 En NewAdvertForm vamos a implantar el .propTypes para validar el tipo de datos que utilizamos en cada campo.
+56 Ahora vamos a trabajar en el detalle para realizar el borrado de un anuncio con confirmación tal y como se pide en el enunciado de la práctic.
+
+
+TODO- Crear una validación inicial para saber que el token que tenemos guardado no está caducado y es válido.
 
 

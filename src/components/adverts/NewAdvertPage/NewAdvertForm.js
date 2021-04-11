@@ -34,7 +34,6 @@ const NewAdvertForm = ({onSubmit}) =>{
               }));      
     }
 
-    
     const handleFormSubmit = ev => {
         const resultReturn = {tags: tags.selectedOptions}
         const sales = {sale: advert.sale === 'Venta' ? true:false};
@@ -94,7 +93,7 @@ const NewAdvertForm = ({onSubmit}) =>{
                 type="submit"
                 className="loginForm-submit"
                 variant="primary"
-                disabled={ !name || !price || tags.lenght>=0}
+                disabled={ !name || !price || tags.length<1}
             >
                 Save
             </Button>
@@ -103,6 +102,13 @@ const NewAdvertForm = ({onSubmit}) =>{
       );
 
 };
+
+NewAdvertForm.propTypes = {
+    className: T.string,
+    isLogged: T.bool,
+    onLogout: T.func.isRequired,
+  };
+  
 
 export default NewAdvertForm;
 
