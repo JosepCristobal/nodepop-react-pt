@@ -127,7 +127,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 55 Cuando no existen anuncios, en el primer anuncio mostramos una pantalla con el detalle vacío y un botón que nos permitirá crear nuestro primer anuncio.
 56 En NewAdvertForm vamos a implantar el .propTypes para validar el tipo de datos que utilizamos en cada campo. 
 57 En NewAdvertForm no se activa el botón de guardar hasta que no están todos los campos obligatorios con sus valores.
-58 Creamos AdvertSearch para desarrollar las etiquetas de búsqueda
+58 Creamos AdvertSearch para desarrollar las etiquetas de búsqueda.
+
+60 Solucionamos la foto por defecto en el detalle de anuncios cuando no existe foto.
 
 
 TODO- El listado de anuncios maketarlo correctamente y en detalle poner la fecha de creación.
@@ -135,5 +137,6 @@ TODO- Control de errores implantar en algunos casos y mejorar los existentes.
 TODO- Crear una validación inicial para saber que el token que tenemos guardado no está caducado y es válido.
 TODO- Solucionar Warning en Advert Detail.
 TODO- Campo precio en new y en search que solo acepte campos numéricos.
+TODO- Botón confirmación para el logout.
 
 

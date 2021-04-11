@@ -1,16 +1,31 @@
 import React from 'react';
+import { findAllInRenderedTree } from 'react-dom/test-utils';
 import useForm from '../../../hooks/useForm';
 import { Button, FormField, RadioField  } from '../../shared';
 import TagsAvailable from '../NewAdvertPage/TagsAvailable'
+import AdvertsList from './AdvertsList'
+import { Link } from 'react-router-dom';
 
-const AdvertSearch =()=>{
+const AdvertSearch =({adverts})=>{
+    
+    const EmptyList = () => (
+        <div style={{ textAlign: 'center' }}>
+          <p>Be the first Ad!</p>
+          <Button as={Link} to="/advert" variant="primary">
+            Crear Anuncio
+          </Button>
+        </div>
+      );
+      
+    const [name, setName] = React.useState('');
 
-    const [name, setName] = React.useState([]);
-
-    const [price, setPrice] = React.useState([]);
+    const [price, setPrice] = React.useState(0.0);
     const [tags, setTags] = React.useState([]);
+    const [sale, setSale] = React.useState('Venta');
 
-    const handleChange = (e)=>{}
+    const handleChange = (e)=>{
+        
+    }
 
     const handleChangePrice = (e) => {
         setPrice(e.target.value);  
@@ -19,6 +34,10 @@ const AdvertSearch =()=>{
     const handleChangeName = (e) => {
         setName(e.target.value)
       };
+      const handleChangeCheck = (e) => {
+        setSale(e.target.value)
+      };
+  
 
     const handleTagChange = (e) => {
         let options = e.target.options;
@@ -35,10 +54,12 @@ const AdvertSearch =()=>{
                 selectedOptions,
             }));      
     }
+    const handleSubmit = ()=>{}
 
 return (
     // <form className="newAdvertForm" onSubmit={handleSubmit(handleFormSubmit)}>
-    <form className="newAdvertForm" onSubmit="">
+    <div>
+    <form className="newAdvertForm" onSubmit={handleSubmit()}>
         <FormField
             type="text"
             name="name"
@@ -48,7 +69,7 @@ return (
             onChange={handleChangeName}
             autofocus
         />
-        {/* <div >
+        <div >
         <RadioField
             type="radio"
             name="sale"
@@ -56,7 +77,7 @@ return (
             className="loginForm-field"
             value='Compra'
             checked= {sale ==='Compra'}
-            onChange={handleChange}
+            onChange={handleChangeCheck}
         />
         <RadioField
             type="radio"
@@ -65,9 +86,18 @@ return (
             className="loginForm-field"
             value='Venta'
             checked= {sale ==='Venta'}
-            onChange={handleChange}
+            onChange={handleChangeCheck}
         />
-        </div> */}
+        <RadioField
+            type="radio"
+            name="sale"
+            label="Todos"
+            className="loginForm-field"
+            value='Todos'
+            checked= {sale ==='Todos'}
+            onChange={handleChangeCheck}
+        />
+        </div>
         <FormField
             type="text"
             name="price"
@@ -83,14 +113,19 @@ return (
         />
         
         <Button
-            type="submit"
+            // type="button"
             className="loginForm-submit"
             variant="primary"
+            //onClick = {alert('La Búsqueda está en marcha')}
         >
             Search
         </Button>
       
     </form>
+    <div className="advertsPage">
+        {adverts.length ? <AdvertsList adverts={adverts}  /> : <EmptyList />}
+    </div>
+</div>
   );
 }
 export default AdvertSearch;

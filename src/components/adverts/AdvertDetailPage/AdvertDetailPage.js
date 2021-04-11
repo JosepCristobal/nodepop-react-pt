@@ -5,6 +5,7 @@ import Photo from '../../shared/Photo';
 import { getAdvertDetail, deleteAdvert } from '../../../api/adverts';
 import { Redirect, useHistory } from 'react-router';
 import { Button  } from '../../shared';
+import defaultPhoto from '../../../assets/2574831-200.png'
 
 const AdvertDetailPage = ({ className, ...props }) =>{
     const[ad,setAd] = React.useState({advert: {}, error:null})
@@ -36,7 +37,7 @@ if (ad.error && ad.error.status === 404) {
   return (
     <Layout title="Advert Detail" {...props}>
     <div>
-      <Photo src={baseUrlPhoto+ad.photo} className="advert-centerImg advert-imgWidth" />
+      <Photo src={ad.photo ?baseUrlPhoto+ad.photo: defaultPhoto} className="advert-centerImg advert-imgWidth" />
     </div>
     <div>
       <p>Descripción: {ad.name}</p>

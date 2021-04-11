@@ -3,19 +3,16 @@ import T from 'prop-types';
 import { Link } from 'react-router-dom';
 import Advert, { advertType } from './Advert';
 
-const AdvertsList = ({ adverts }) => {
- 
+const AdvertsList = ({ adverts }, ...props) => {
   //Inicio de Pruebas de filtrado
-  const datoEvalua="Embarcación"
+  const datoEvalua="Moto"
   const items = adverts.filter((data)=>{
-    //console.log(data.name.toLowerCase())
     if(datoEvalua == null)
       return data
     else if(data.name.toLowerCase().includes(datoEvalua.toLowerCase()) ){
       return data
 }    
   }).map(data=>{
-    console.log(`Datos llegan al map: ${data.name}`)
     return(
     <div>
       <ul className="advertsList">

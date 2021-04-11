@@ -28,11 +28,13 @@ const AdvertsPage = ({ className, ...props }) => {
   return (
     <Layout title="What's going on..." {...props}>
       <div>
-        <AdvertSearch></AdvertSearch>
+        <AdvertSearch adverts={adverts}{...props}>
+  
+        </AdvertSearch>
       </div>
-      <div className="advertsPage">
+      {/* <div className="advertsPage">
         {adverts.length ? <AdvertsList adverts={adverts} /> : <EmptyList />}
-      </div>
+      </div> */}
     </Layout>
   );
 };
