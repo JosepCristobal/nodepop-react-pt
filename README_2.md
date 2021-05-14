@@ -4,7 +4,7 @@
 
 3 Podemos ver la página principal que nos viene por defecto.
 
-4 Vamos a limpiar carpetas se ejemplos que no son necesarios.
+4 Vamos a limpiar carpetas de ejemplos que no son necesarios.
 
 5 Empezamos por el src/index.js
 
@@ -80,13 +80,13 @@
 
 41 En Shared creamos Photo.js
 
-42 Creanis el detalle en AdvertDetailPage.js cogiendo como muestra el ejercicio realizado en clase.
+42 Creamos el detalle en AdvertDetailPage.js cogiendo como muestra el ejercicio realizado en clase.
 
 43 También hemos creado el AdertDetailPageHook que es lo mismo que la anterior pero en lugar de utilizar clases, hemos utilizado hooks.
 
-44 Como estamos creando el esqueleto de nuestra aplicación y dando funcionalidad mínima a todo, ahora vamos a crear la creación de un nuevo anuncio.
+44 Como estamos creando el esqueleto de nuestra aplicación y dando funcionalidad mínima a todo, ahora vamos a la creación de un nuevo anuncio.
 
-45 Creamos  en la carpeta de NewAdvertPage los ficheros NewAdvertForm.js, NewAdvertPage.js y NewAdvertPage.css.
+45 Creamos en la carpeta de NewAdvertPage los ficheros NewAdvertForm.js, NewAdvertPage.js y NewAdvertPage.css.
 
 46 Desarrollamos el formulario de alta de nuevos anuncios.
 
@@ -129,7 +129,7 @@ Las pruebas de filtrado las he intentado hacer en local y me ha faltado el poder
  Subo la práctica y si me da tiempo hasta 23.50h haré otra intentona.
 
 
-TODO- El listado de anuncios maketarlo correctamente y en detalle poner la fecha de creación.
+TODO- El listado de anuncios maquetarlo correctamente y en detalle poner la fecha de creación.
 
 TODO- Control de errores implantar en algunos casos y mejorar los existentes.
 

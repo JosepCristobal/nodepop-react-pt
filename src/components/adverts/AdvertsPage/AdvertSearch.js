@@ -15,22 +15,24 @@ const AdvertSearch =({adverts})=>{
       );
       
     const [name, setName] = React.useState('');
-    const [price, setPrice] = React.useState(0.0);
+    const [price, setPrice] = React.useState(0);
     const [tags, setTags] = React.useState([]);
-    const [sale, setSale] = React.useState('Venta');
-    const [filterR, setFilterR]= React.useState({})
+    const [sale, setSale] = React.useState('Todos');
+    const [filterR, setFilterR]= React.useState({
+
+    })
     const handleChangePrice = (e) => {
         setPrice(e.target.value); 
-        setFilterR(()=>resultFilter())
+        //setFilterR(()=>resultFilter())
       };
 
     const handleChangeName = (e) => {
         setName(e.target.value)
-        setFilterR(()=>resultFilter())
+        //setFilterR(()=>resultFilter())
       };
       const handleChangeCheck = (e) => {
         setSale(e.target.value)
-        setFilterR(()=>resultFilter())
+        //setFilterR(()=>resultFilter())
       };
   
 
@@ -48,9 +50,10 @@ const AdvertSearch =({adverts})=>{
                 ...oldValue,
                 selectedOptions,
             })); 
-        setFilterR(()=>resultFilter())     
+        //setFilterR(()=>resultFilter())     
     }
-    const handleFormSubmit = ev => {
+    const handleFormSubmit = (ev) => {
+      ev.preventDefault();
         const resultReturn = {tags: tags.selectedOptions}
         const sales = {sale: sale === 'Venta' ? true:false};
         const ventaCompra = {todos: sale === 'Todos' ? true:false};
@@ -60,21 +63,59 @@ const AdvertSearch =({adverts})=>{
        
       };
       const resultFilter = (e)=>{
-       // e.preventDefault();
+        e.preventDefault();
         const resultReturn = {tags: tags.selectedOptions}
         const sales = {sale: sale === 'Venta' ? true:false};
         const ventaCompra = {todos: sale === 'Todos' ? true:false};
         const nombre = {name:name};
         const importeD = {price:price}
         const filterAdvert = Object.assign(nombre,resultReturn,sales,ventaCompra,importeD)
-        return filterAdvert
-        //setFilterR({filterAdvert})
       }
+
+      const datoEvalua= name;
+      const resultReturn =  tags.selectedOptions;
+      const sales = sale === 'Venta' ? true:false;
+      const ventaCompra = sale === 'Todos' ? true:false;
+      const nombre = name;
+      const importeD = price
+    
+    
+    const items = adverts.filter((data)=>{
+        console.log(`Filto Seleccionados datoEvalua: ${datoEvalua}`)
+        console.log(`Filto Seleccionados sale: ${sale}`)
+        console.log(`Filto Seleccionados price: ${price}`)
+        console.log(`Filto Seleccionados tags: ${tags.selectedOptions}`)
+        const sales = {sale: sale === 'Venta' ? true:false};
+        
+
+        if(datoEvalua === "" && sale==="Todos" && price === 0 && tags.selectedOptions == undefined ){
+          return data
+        }
+        else if (datoEvalua !== "" && price !== 0 ){
+          return data.name.toLowerCase().includes(datoEvalua.toLowerCase()) && 
+                data.price == price;
+        
+        }
+        
+       
+
+       // if(datoEvalua === "" && sale==="Todos" && price === 0 && tags.selectedOptions == undefined ){
+        //   return data
+        // }
+        // else if(
+        //   datoEvalua === ""?
+        //   data.name.toLowerCase().includes(datoEvalua.toLowerCase()
+        // ) ){
+        //   return data
+        // }
+
+    });   
+   
 
 return (
 
     <div>
-    <form className="newAdvertForm" onSubmit={handleFormSubmit()}>
+    <form className="newAdvertForm" onSubmit={handleFormSubmit}>
         <FormField
             type="text"
             name="name"
@@ -138,14 +179,15 @@ return (
         <Button
             className="loginForm-submit"
             variant="primary"
-            // onClick = {resultFilter}
+            onClick = {resultFilter}
             >
             Búsqueda controlada    
         </Button>
 
     </form>
     <div className="advertsPage">
-        {adverts.length ? <AdvertsList adverts={adverts} {...filterR} /> : <EmptyList />}
+        {/* {adverts.length ? <AdvertsList adverts={adverts} filters={filterR} /> : <EmptyList />} */}
+        {adverts.length ? <AdvertsList  items={items}/> : <EmptyList />}
     </div>
 </div>
   );
