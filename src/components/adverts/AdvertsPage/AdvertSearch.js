@@ -3,6 +3,8 @@ import { Button, FormField, RadioField  } from '../../shared';
 import TagsAvailable from '../NewAdvertPage/TagsAvailable'
 import AdvertsList from './AdvertsList'
 import { Link } from 'react-router-dom';
+import { filtersAdverts } from './filters';
+
 
 const AdvertSearch =({adverts})=>{
     const EmptyList = () => (
@@ -61,6 +63,7 @@ const AdvertSearch =({adverts})=>{
         const importeD = {price:price}
         const filterAdvert = Object.assign(nombre,resultReturn,sales,ventaCompra,importeD)
        
+       
       };
       const resultFilter = (e)=>{
         e.preventDefault();
@@ -70,6 +73,7 @@ const AdvertSearch =({adverts})=>{
         const nombre = {name:name};
         const importeD = {price:price}
         const filterAdvert = Object.assign(nombre,resultReturn,sales,ventaCompra,importeD)
+        console.log('Array filtrado de retorno: ',filtersAdverts(adverts,filterAdvert));
       }
 
       const datoEvalua= name;
@@ -81,6 +85,7 @@ const AdvertSearch =({adverts})=>{
     
     
     const items = adverts.filter((data)=>{
+        
         console.log(`Filto Seleccionados datoEvalua: ${datoEvalua}`)
         console.log(`Filto Seleccionados sale: ${sale}`)
         console.log(`Filto Seleccionados price: ${price}`)
@@ -96,22 +101,9 @@ const AdvertSearch =({adverts})=>{
                 data.price == price;
         
         }
-        
-       
 
-       // if(datoEvalua === "" && sale==="Todos" && price === 0 && tags.selectedOptions == undefined ){
-        //   return data
-        // }
-        // else if(
-        //   datoEvalua === ""?
-        //   data.name.toLowerCase().includes(datoEvalua.toLowerCase()
-        // ) ){
-        //   return data
-        // }
-
-    });   
-   
-
+    }); 
+    
 return (
 
     <div>
