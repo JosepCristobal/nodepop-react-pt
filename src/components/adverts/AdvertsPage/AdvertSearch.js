@@ -67,12 +67,13 @@ const AdvertSearch =({adverts})=>{
       };
       const resultFilter = (e)=>{
         e.preventDefault();
-        const resultReturn = {tags: tags.selectedOptions}
+        const resultReturn = {tags: tags.selectedOptions || []}
         const sales = {sale: sale === 'Venta' ? true:false};
         const ventaCompra = {todos: sale === 'Todos' ? true:false};
         const nombre = {name:name};
         const importeD = {price:price}
         const filterAdvert = Object.assign(nombre,resultReturn,sales,ventaCompra,importeD)
+        //console.log('FilterAdvert:', filterAdvert)
         console.log('Array filtrado de retorno: ',filtersAdverts(adverts,filterAdvert));
       }
 
