@@ -3,8 +3,6 @@ import { Button, FormField, RadioField} from '../../shared';
 import TagsAvailable from '../NewAdvertPage/TagsAvailable'
 import AdvertsList from './AdvertsList'
 import { Link } from 'react-router-dom';
-import { filtersAdverts } from './filters';
-
 
 const AdvertSearch =({adverts})=>{
     const EmptyList = () => (
@@ -15,40 +13,44 @@ const AdvertSearch =({adverts})=>{
           </Button>
         </div>
       );
+      const filterInitial = {
+        tags:[],
+        sale: true,
+        todos: true,
+        name:'',
+        price:0,
+        priceEnd:0
+      }
       
     const [name, setName] = React.useState('');
     const [price, setPrice] = React.useState(0);
     const [tags, setTags] = React.useState([]);
     const [sale, setSale] = React.useState('Todos');
-    const [priceEnd, setPriceEnd]= React.useState(0)
-    // const [filterR, setFilterR]= React.useState({})
+    const [priceEnd, setPriceEnd]= React.useState(0);
+    const [filterData, setFilterData] = React.useState(filterInitial);
+
+    
     const handleChangePrice = (e) => {
         setPrice(e.target.value); 
-        if (price>priceEnd) setPriceEnd(e.target.value)
-        //setFilterR(()=>resultFilter())
+        //if (parseInt(price,10)>parseInt(priceEnd,10)) 
+        setPriceEnd(e.target.value)
       };
 
       const handleChangePriceEnd = (e) => {
         setPriceEnd(e.target.value); 
         //if (price>priceEnd) setPriceEnd(e.target.value)
-        //setFilterR(()=>resultFilter())
       };
 
     const handleChangeName = (e) => {
         setName(e.target.value)
-        //setFilterR(()=>resultFilter())
       };
     const handleChangeCheck = (e) => {
       setSale(e.target.value)
-      //setFilterR(()=>resultFilter())
     };
     
-  
-
     const handleTagChange = (e) => {
         let options = e.target.options;
         let selectedOptions = [];
-
         for(let i = 0; i < options.length; i++) {
             if( options[i].selected ) {
                 selectedOptions.push(options[i].value);
@@ -58,73 +60,32 @@ const AdvertSearch =({adverts})=>{
             oldValue => ({
                 ...oldValue,
                 selectedOptions,
-            })); 
-        //setFilterR(()=>resultFilter())     
+            }));     
     }
     const handleFormSubmit = (ev) => {
       ev.preventDefault();
-        const resultReturn = {tags: tags.selectedOptions}
-        const sales = {sale: sale === 'Venta' ? true:false};
-        const ventaCompra = {todos: sale === 'Todos' ? true:false};
-        const nombre = {name:name};
-        const importeD = {price:price};
-        const importeHasta = {priceEnd:priceEnd};
-        const filterAdvert = Object.assign(nombre,resultReturn,sales,ventaCompra,importeD,importeHasta)
-       
-       
+      resultFilterData()
       };
-      const resultFilter = (e)=>{
-        e.preventDefault();
-        // const resultReturn = {tags: tags.selectedOptions || []}
-        // const sales = {sale: sale === 'Venta' ? true:false};
-        // const ventaCompra = {todos: sale === 'Todos' ? true:false};
-        // const nombre = {name:name};
-        // const importeD = {price:price}
-        // const importeHasta = {priceEnd:priceEnd};
-        // const filterAdvert = Object.assign(nombre,resultReturn,sales,ventaCompra,importeD,importeHasta)
-        // //console.log('FilterAdvert:', filterAdvert)
-        // console.log('Array filtrado de retorno: ',filtersAdverts(adverts,filterAdvert));
-        console.log('Array filtrado de retorno: ',resultFilterData());
-      }
-      const resultFilterData = ()=>{
-        const resultReturn = {tags: tags.selectedOptions || []}
-        const sales = {sale: sale === 'Venta' ? true:false};
-        const ventaCompra = {todos: sale === 'Todos' ? true:false};
-        const nombre = {name:name};
-        const importeD = {price:price}
-        const importeHasta = {priceEnd:priceEnd};
-        const filterAdvert = Object.assign(nombre,resultReturn,sales,ventaCompra,importeD,importeHasta)
-        //console.log('FilterAdvert:', filterAdvert)
-        return filtersAdverts(adverts,filterAdvert);
-      }
-
-      const datoEvalua= name;
-      const resultReturn =  tags.selectedOptions;
-      const sales = sale === 'Venta' ? true:false;
-      const ventaCompra = sale === 'Todos' ? true:false;
-      const nombre = name;
-      const importeD = price
+    const handleResetFilter = (ev) => {
+      ev.preventDefault();
+      setFilterData(filterInitial)
+      setName('');
+      setPrice(0);
+      setTags([]);
+      setSale('Todos');
+      setPriceEnd(0);
+    };
     
-    
-    const items = adverts.filter((data)=>{
-      return resultFilterData();
-        // console.log(`Filto Seleccionados datoEvalua: ${datoEvalua}`)
-        // console.log(`Filto Seleccionados sale: ${sale}`)
-        // console.log(`Filto Seleccionados price: ${price}`)
-        // console.log(`Filto Seleccionados tags: ${tags.selectedOptions}`)
-        // const sales = {sale: sale === 'Venta' ? true:false};
-        
-
-        // if(datoEvalua === "" && sale==="Todos" && price === 0 && tags.selectedOptions == undefined ){
-        //   return data
-        // }
-        // else if (datoEvalua !== "" && price !== 0 ){
-        //   return data.name.toLowerCase().includes(datoEvalua.toLowerCase()) && 
-        //         data.price == price;
-        
-        // }
-
-    }); 
+    const resultFilterData = ()=>{
+      const resultReturn = {tags: tags.selectedOptions || []}
+      const sales = {sale: sale === 'Venta' ? true:false};
+      const ventaCompra = {todos: sale === 'Todos' ? true:false};
+      const nombre = {name:name};
+      const importeD = {price:price}
+      const importeHasta = {priceEnd:priceEnd};
+      const filterAdvert = Object.assign(nombre,resultReturn,sales,ventaCompra,importeD,importeHasta)
+      setFilterData(filterAdvert) 
+    }   
 
 return (
 
@@ -194,22 +155,22 @@ return (
             type="submit"
             className="loginForm-submit"
             variant="primary"
-           
+            onClick = {handleResetFilter}
         >
-            Search
+            Reset Filter
         </Button>
         <Button
             className="loginForm-submit"
             variant="primary"
-            onClick = {resultFilter}
+            onClick = {handleFormSubmit}
             >
             Búsqueda controlada    
         </Button>
 
     </form>
     <div className="advertsPage">
-        {/* {adverts.length ? <AdvertsList adverts={adverts} filters={filterR} /> : <EmptyList />} */}
-        {adverts.length ? <AdvertsList  items={items}/> : <EmptyList />}
+        {adverts.length ? <AdvertsList items = {adverts}
+                          filtro= {filterData} />: <EmptyList />}
     </div>
 </div>
   );
