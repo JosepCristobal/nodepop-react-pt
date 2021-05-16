@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, FormField, RadioField  } from '../../shared';
+import { Button, FormField, RadioField} from '../../shared';
 import TagsAvailable from '../NewAdvertPage/TagsAvailable'
 import AdvertsList from './AdvertsList'
 import { Link } from 'react-router-dom';
@@ -20,11 +20,17 @@ const AdvertSearch =({adverts})=>{
     const [price, setPrice] = React.useState(0);
     const [tags, setTags] = React.useState([]);
     const [sale, setSale] = React.useState('Todos');
-    const [filterR, setFilterR]= React.useState({
-
-    })
+    const [priceEnd, setPriceEnd]= React.useState(0)
+    // const [filterR, setFilterR]= React.useState({})
     const handleChangePrice = (e) => {
         setPrice(e.target.value); 
+        if (price>priceEnd) setPriceEnd(e.target.value)
+        //setFilterR(()=>resultFilter())
+      };
+
+      const handleChangePriceEnd = (e) => {
+        setPriceEnd(e.target.value); 
+        //if (price>priceEnd) setPriceEnd(e.target.value)
         //setFilterR(()=>resultFilter())
       };
 
@@ -32,10 +38,11 @@ const AdvertSearch =({adverts})=>{
         setName(e.target.value)
         //setFilterR(()=>resultFilter())
       };
-      const handleChangeCheck = (e) => {
-        setSale(e.target.value)
-        //setFilterR(()=>resultFilter())
-      };
+    const handleChangeCheck = (e) => {
+      setSale(e.target.value)
+      //setFilterR(()=>resultFilter())
+    };
+    
   
 
     const handleTagChange = (e) => {
@@ -60,21 +67,35 @@ const AdvertSearch =({adverts})=>{
         const sales = {sale: sale === 'Venta' ? true:false};
         const ventaCompra = {todos: sale === 'Todos' ? true:false};
         const nombre = {name:name};
-        const importeD = {price:price}
-        const filterAdvert = Object.assign(nombre,resultReturn,sales,ventaCompra,importeD)
+        const importeD = {price:price};
+        const importeHasta = {priceEnd:priceEnd};
+        const filterAdvert = Object.assign(nombre,resultReturn,sales,ventaCompra,importeD,importeHasta)
        
        
       };
       const resultFilter = (e)=>{
         e.preventDefault();
+        // const resultReturn = {tags: tags.selectedOptions || []}
+        // const sales = {sale: sale === 'Venta' ? true:false};
+        // const ventaCompra = {todos: sale === 'Todos' ? true:false};
+        // const nombre = {name:name};
+        // const importeD = {price:price}
+        // const importeHasta = {priceEnd:priceEnd};
+        // const filterAdvert = Object.assign(nombre,resultReturn,sales,ventaCompra,importeD,importeHasta)
+        // //console.log('FilterAdvert:', filterAdvert)
+        // console.log('Array filtrado de retorno: ',filtersAdverts(adverts,filterAdvert));
+        console.log('Array filtrado de retorno: ',resultFilterData());
+      }
+      const resultFilterData = ()=>{
         const resultReturn = {tags: tags.selectedOptions || []}
         const sales = {sale: sale === 'Venta' ? true:false};
         const ventaCompra = {todos: sale === 'Todos' ? true:false};
         const nombre = {name:name};
         const importeD = {price:price}
-        const filterAdvert = Object.assign(nombre,resultReturn,sales,ventaCompra,importeD)
+        const importeHasta = {priceEnd:priceEnd};
+        const filterAdvert = Object.assign(nombre,resultReturn,sales,ventaCompra,importeD,importeHasta)
         //console.log('FilterAdvert:', filterAdvert)
-        console.log('Array filtrado de retorno: ',filtersAdverts(adverts,filterAdvert));
+        return filtersAdverts(adverts,filterAdvert);
       }
 
       const datoEvalua= name;
@@ -86,25 +107,25 @@ const AdvertSearch =({adverts})=>{
     
     
     const items = adverts.filter((data)=>{
-        
-        console.log(`Filto Seleccionados datoEvalua: ${datoEvalua}`)
-        console.log(`Filto Seleccionados sale: ${sale}`)
-        console.log(`Filto Seleccionados price: ${price}`)
-        console.log(`Filto Seleccionados tags: ${tags.selectedOptions}`)
-        const sales = {sale: sale === 'Venta' ? true:false};
+      return resultFilterData();
+        // console.log(`Filto Seleccionados datoEvalua: ${datoEvalua}`)
+        // console.log(`Filto Seleccionados sale: ${sale}`)
+        // console.log(`Filto Seleccionados price: ${price}`)
+        // console.log(`Filto Seleccionados tags: ${tags.selectedOptions}`)
+        // const sales = {sale: sale === 'Venta' ? true:false};
         
 
-        if(datoEvalua === "" && sale==="Todos" && price === 0 && tags.selectedOptions == undefined ){
-          return data
-        }
-        else if (datoEvalua !== "" && price !== 0 ){
-          return data.name.toLowerCase().includes(datoEvalua.toLowerCase()) && 
-                data.price == price;
+        // if(datoEvalua === "" && sale==="Todos" && price === 0 && tags.selectedOptions == undefined ){
+        //   return data
+        // }
+        // else if (datoEvalua !== "" && price !== 0 ){
+        //   return data.name.toLowerCase().includes(datoEvalua.toLowerCase()) && 
+        //         data.price == price;
         
-        }
+        // }
 
     }); 
-    
+
 return (
 
     <div>
@@ -150,10 +171,18 @@ return (
         <FormField
             type="text"
             name="price"
-            label="Precio"
+            label="Precio desde"
             className="loginForm-field"
             value={price}
             onChange={handleChangePrice}
+        />
+        <FormField
+            type="text"
+            name="priceEnd"
+            label="Precio hasta"
+            className="loginForm-field"
+            value={priceEnd}
+            onChange={handleChangePriceEnd}
         />
         <TagsAvailable
             labels="Clasificación de anuncios"

@@ -141,6 +141,9 @@ TODO- Campo precio en new y en search que sólo acepte campos numéricos.
 
 TODO- Mejoras y optimización de código.
 
+61 Seguimos con los filtros. Para filtrar los precios, utilizaremos rc-slider como componente para marcar los mínimos y máximos.
+62 Instalamos npm install rc-slider
+
 
 
 

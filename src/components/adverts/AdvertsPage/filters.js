@@ -28,14 +28,24 @@ const filterByTags= (advert,filterSearch) => {
 
 }
 
+const filterByPrice = (advert,filterSearch) =>{
+    const min = filterSearch.price
+    const max = filterSearch.priceEnd
+    if (min===0 && max===0) return true;
+    if (max>=min) {
+        console.log('Precio', advert.price)
+        return advert.price>=min && advert.price<=max
+    };
 
-    
+}
+   
 export const filtersAdverts = (adverts, filterSearch) => {
     return adverts.filter (advert => {
         return (
             filterByName(advert, filterSearch) &&
             filterBySale(advert, filterSearch) &&
-            filterByTags(advert, filterSearch)         
+            filterByTags(advert, filterSearch) &&
+            filterByPrice(advert, filterSearch)        
         );
     });
   };
