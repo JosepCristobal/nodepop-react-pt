@@ -18,13 +18,13 @@ const NewAdvertPage = props => {
     try {
       let advert;
       
-      if (newAdvert.photo === undefined){
-        console.log('Photo vacía')
-        advert = await createAdvert(newAdvert);
-      } else{
-        console.log('Photo llena')
+      // if (newAdvert.photo === undefined){
+      //   console.log('Photo vacía')
+      //   advert = await createAdvert(newAdvert);
+      // } else{
+      //   console.log('Photo llena')
         advert = await createAdvertPhoto(newAdvert);
-      }
+      // }
       setCreatedAdvert(advert);
     } catch (error) {
       setError(true);

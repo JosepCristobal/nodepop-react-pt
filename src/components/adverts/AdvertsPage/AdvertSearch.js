@@ -1,4 +1,5 @@
 import React from 'react';
+import T from 'prop-types';
 import { Button, FormField, RadioField} from '../../shared';
 import TagsAvailable from '../NewAdvertPage/TagsAvailable'
 import AdvertsList from './AdvertsList'
@@ -13,14 +14,14 @@ const AdvertSearch =({adverts})=>{
           </Button>
         </div>
       );
-      const filterInitial = {
-        tags:[],
-        sale: true,
-        todos: true,
-        name:'',
-        price:0,
-        priceEnd:0
-      }
+    const filterInitial = {
+      tags:[],
+      sale: true,
+      todos: true,
+      name:'',
+      price:0,
+      priceEnd:0
+    }
       
     const [name, setName] = React.useState('');
     const [price, setPrice] = React.useState(0);
@@ -130,20 +131,22 @@ return (
         />
         </div>
         <FormField
-            type="text"
+            type="number"
             name="price"
             label="Precio desde"
             className="loginForm-field"
             value={price}
             onChange={handleChangePrice}
+           
         />
         <FormField
-            type="text"
+            type="number"
             name="priceEnd"
             label="Precio hasta"
             className="loginForm-field"
             value={priceEnd}
             onChange={handleChangePriceEnd}
+            
         />
         <TagsAvailable
             labels="Clasificación de anuncios"
@@ -175,4 +178,9 @@ return (
 </div>
   );
 }
+AdvertSearch.propTypes = {
+  price: T.number,
+  priceEnd: T.number
+}
+
 export default AdvertSearch;
