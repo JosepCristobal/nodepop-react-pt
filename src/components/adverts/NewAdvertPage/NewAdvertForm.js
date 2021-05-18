@@ -77,7 +77,7 @@ const NewAdvertForm = ({onSubmit}) =>{
             />
             </div>
             <FormField
-                type="text"
+                type="number"
                 name="price"
                 label="Precio"
                 className="loginForm-field"

@@ -12,11 +12,6 @@ export const getAdvertDetail = (advertId) => {
   return client.get(url);
 };
 
-// export const createAdvert = (advert) => {
-//   const url = `${advertsBaseUrl}/adverts`;
- 
-//   return client.post(url, advert);
-// };
 
 export const createAdvertPhoto= (advert) =>{
   const url = `${advertsBaseUrl}/adverts`;
