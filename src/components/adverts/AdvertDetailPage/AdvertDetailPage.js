@@ -10,7 +10,6 @@ import defaultPhoto from '../../../assets/2574831-200.png'
 const AdvertDetailPage = ({ className, ...props }) =>{
     const[ad,setAd] = React.useState({advert: {}, error:null})
     const { match } = props;
-
   useEffect(()=>{
     getAdvertDetail(match.params.advertId)
       .then(adv => setAd(adv))
