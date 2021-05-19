@@ -1,7 +1,6 @@
 const storage = {
     get(key) {
       const value = localStorage.getItem(key);
-      console.log('valor token',value)
       if (!value) {
         return null;
       }
@@ -16,8 +15,6 @@ const storage = {
       localStorage.removeItem(key);
     },
   };
-
-  // Si hubieramos terminado los filtros, aqui se hubieran gestionado las preferencias de usuario.
   
   export default storage;
   

@@ -39,7 +39,6 @@ const NewAdvertForm = ({onSubmit}) =>{
     const handleFormSubmit = ev => {
         const resultReturn = {tags: tags.selectedOptions}
         const sales = {sale: advert.sale === 'Venta' ? true:false};
-       
         const returnedTarget = Object.assign(advert,resultReturn,sales,photo)
         onSubmit(returnedTarget);
       };

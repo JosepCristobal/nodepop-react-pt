@@ -14,16 +14,12 @@ const useForm = initialValue => {
 
   
   const handleSubmit = afterPreventDefault => {
-    // Closure
     return ev => {
       ev.preventDefault();
       afterPreventDefault(ev);
     };
   };
-  //   const handleSubmit = onSubmit => ev => {
-  //     ev.preventDefault();
-  //     onSubmit(ev);
-  //   };
+ 
  
   return [value, handleChange, handleSubmit];
 };

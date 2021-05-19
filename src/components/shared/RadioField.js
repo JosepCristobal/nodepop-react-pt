@@ -6,12 +6,6 @@ import './RadioField.css';
 function RadioField({ className, label, ...props }) {
   const inputRef = React.useRef(null);
 
-  // React.useEffect(() => {
-  //   if (autofocus) {
-  //     inputRef.current.focus();
-  //   }
-  // }, []);
-
   return (
     <div
       className={classNames(

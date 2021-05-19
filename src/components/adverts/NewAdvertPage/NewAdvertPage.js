@@ -2,7 +2,7 @@ import React from 'react';
 import './NewAdvertPage.css';
 import Layout from '../../layout/Layout';
 import NewAdvertForm from './NewAdvertForm';
-import { createAdvert, createAdvertPhoto } from '../../../api/adverts';
+import { createAdvertPhoto } from '../../../api/adverts';
 
 import './NewAdvertPage.css';
 import { Redirect } from 'react-router';
