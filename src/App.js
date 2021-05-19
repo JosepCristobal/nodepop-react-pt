@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import { LoginPage, PrivateRoute } from './components/auth';
 import { AdvertsPage, NewAdvertPage, AdvertDetailPage } from './components/adverts';
 import { AuthContextProvider } from './components/auth/context';
+import  { Redirect } from 'react-router-dom'
 
 function App({ isInitiallyLogged }) {
   const [isLogged, setIsLogged] = React.useState(isInitiallyLogged);
@@ -40,7 +41,7 @@ function App({ isInitiallyLogged }) {
             <NewAdvertPage />
           </PrivateRoute>
           <PrivateRoute exact path="/">
-            <AdvertsPage />
+            <Redirect to='/adverts'  />
           </PrivateRoute>
           <PrivateRoute exact path="/adverts">
             <AdvertsPage />
